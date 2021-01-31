@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class MedianTwoSortedArraysTest {
     @Test
-    public void shouldAnswerWithTrue() {
+    public void testOnMedianTwoSortedArrays() {
         assertEquals("BrutalForce", 2.0,
                 MedianTwoSortedArrays.findMedianSortedArraysBrutalForce(new int[] { 1, 3 }, new int[] { 2 }), 0.0);
 
