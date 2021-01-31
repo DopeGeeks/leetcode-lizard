@@ -90,12 +90,15 @@ public class TwoSum {
     public static boolean twoSumHashMapValidation() {
 
         if (!Arrays.equals(twoSumHashMap(new int[] { 2, 7, 11, 15 }, 9), new int[] { 0, 1 })) {
+            System.out.println("Answer should be: [0,1]");
             return false;
         }
         if (!Arrays.equals(twoSumHashMap(new int[] { 3, 2, 4 }, 6), new int[] { 1, 2 })) {
+            System.out.println("Answer should be: [1,2]");
             return false;
         }
         if (!Arrays.equals(twoSumHashMap(new int[] { 3, 3 }, 6), new int[] { 0, 1 })) {
+            System.out.println("Answer should be: [0,1]");
             return false;
         }
         return true;
@@ -106,6 +109,6 @@ public class TwoSum {
         ts.twoSum(new int[] { 2, 7, 11, 15, 17 }, 19);
 
         boolean validateResult = twoSumHashMapValidation();
-        System.out.println(validateResult);
+        System.out.println(String.format("Validation result: %b", validateResult));
     }
 }
