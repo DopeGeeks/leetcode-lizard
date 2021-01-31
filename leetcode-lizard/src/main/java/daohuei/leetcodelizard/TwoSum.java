@@ -80,9 +80,9 @@ public class TwoSum {
                 return res;
             }
             // get the compliment for each number
-            int compliment = target - nums[i];
+            int complement = target - nums[i];
             // put into the map with key: compliment value and value: its index.
-            complementMap.put(compliment, i);
+            complementMap.put(complement, i);
         }
         return res;
     }
