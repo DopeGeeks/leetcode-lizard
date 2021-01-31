@@ -1,5 +1,24 @@
+package daohuei.leetcodelizard;
+
 import java.util.*;
 
+/*
+ * Question: Two Sum
+ * Description: Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+ * 
+ * Example 1:
+ * Input: nums = [2,7,11,15], target = 9
+ * Output: [0,1]
+ * Output: Because nums[0] + nums[1] == 9, we return [0, 1].
+ * 
+ * Example 2:
+ * Input: nums = [3,2,4], target = 6
+ * Output: [1,2]
+ * 
+ * Example 3:
+ * Input: nums = [3,3], target = 6
+ * Output: [0,1]
+ */
 public class TwoSum {
     // Method 1
     public int[] twoSum(int[] nums, int target) {
@@ -37,8 +56,56 @@ public class TwoSum {
         throw new IllegalArgumentException("No two sum solution");
     }
 
+    /*
+     * Author: @daohuei
+     * 
+     * @Time_Complexity: O(n).
+     * 
+     * @Reason: we run through `nums` array once.
+     * 
+     * @Space_Complexity: O(n).
+     * 
+     * @Reason: we need a hashmap with the length of `n`.
+     */
+    public static int[] twoSumHashMap(int[] nums, int target) {
+        HashMap<Integer, Integer> complementMap = new HashMap<Integer, Integer>();
+        int[] res = new int[2];
+        for (int i = 0; i < nums.length; i++) {
+            // check if the current number has already appeared and matched one of the
+            // compliments.
+            if (complementMap.containsKey(nums[i])) {
+                // if so, this is the answer
+                res[0] = complementMap.get(nums[i]);
+                res[1] = i;
+                return res;
+            }
+            // get the compliment for each number
+            int compliment = target - nums[i];
+            // put into the map with key: compliment value and value: its index.
+            complementMap.put(compliment, i);
+        }
+        return res;
+    }
+
+    public static boolean twoSumHashMapValidation() {
+
+        if (!Arrays.equals(twoSumHashMap(new int[] { 2, 7, 11, 15 }, 9), new int[] { 0, 1 })) {
+            return false;
+        }
+        if (!Arrays.equals(twoSumHashMap(new int[] { 3, 2, 4 }, 6), new int[] { 1, 2 })) {
+            return false;
+        }
+        if (!Arrays.equals(twoSumHashMap(new int[] { 3, 3 }, 6), new int[] { 0, 1 })) {
+            return false;
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         TwoSum ts = new TwoSum();
         ts.twoSum(new int[] { 2, 7, 11, 15, 17 }, 19);
+
+        boolean validateResult = twoSumHashMapValidation();
+        System.out.println(validateResult);
     }
 }
