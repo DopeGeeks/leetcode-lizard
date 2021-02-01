@@ -1,6 +1,6 @@
 # leetcode-lizard
 
-<img src="https://i.imgur.com/45ZX67w.jpeg" title="LeetCode Lizard" width=20% align="right">
+<img src="https://i.imgur.com/6YJG4x7.jpg" title="LeetCode Lizard" width=20% align="right">
 The lizard will try its best to help you pass the interview.
 
 ## Usage
