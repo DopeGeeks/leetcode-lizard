@@ -5,6 +5,9 @@ package daohuei.leetcodelizard;
  * Description: Write a function to find the longest common prefix string amongst an array of strings.
  * Example1:   Input: strs = ["flower","flow","flight"], Output: "fl"
  * Example2:   Input: strs = ["dog","racecar","car"], Output: ""
+ * 
+ * Time Complexity: O(m*n), m is str.length, and n is prefix.length
+ * Space Complexity: O(n), n is prefix.length
 */
 
 public class LongestCommonPrefix{
@@ -17,7 +20,7 @@ public class LongestCommonPrefix{
         //Compare to next element, so start at index 1
         for(int i = 1; i < strs.length; i++){
             // indexOf() : This method returns the index within this string of the first occurrence of 
-            // the specified character or -1, if the character does not occur.
+            // the specified character or -1 if the character does not occur.
             // e.g. "flow".indexOf("flower") will return -1, Cuz flow doesn't contain flower.
             
             while(strs[i].indexOf(prefix) != 0){
