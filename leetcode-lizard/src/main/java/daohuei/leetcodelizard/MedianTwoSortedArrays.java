@@ -102,7 +102,7 @@ public class MedianTwoSortedArrays {
      * @Description: Use binary search for the shorter array and then compare the
      * maximum value on left and minimum value on right.
      * 
-     * @Time: O(log(min(m+n))), since we only use binary search for the shorter
+     * @Time: O(log(min(m,n))), since we only use binary search for the shorter
      * array, so the time complexity will be m or n(the minimal one)
      * 
      * @Space: O(1), since we are not using arrays to store result
