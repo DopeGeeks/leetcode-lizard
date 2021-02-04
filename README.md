@@ -15,11 +15,28 @@ Install [Maven](https://maven.apache.org/install.html)
 
 ### Run the Program
 
+If you have defined your main function in your java class
+
 ```bash
 java -cp target/leetcode-lizard-1.0-SNAPSHOT.jar \
-    daohuei.leetcodelizard.[LeetCode Solution ClassName, i.e. 'TwoSum']
+daohuei.leetcodelizard.["LeetCode Solution ClassName, i.e. 'TwoSum'"]
+```
+
+### Test
+
+a. Test all the test cases at once:
+
+```bash
+mvn test
+```
+
+b. Test with specific class:
+
+```bash
+mvn -Dtest=["Your test class, i.e. 'TwoSumTest'"] test
 ```
 
 ## Acknowledgement
 
 -   [Maven](https://maven.apache.org/)
+-   [LeetCode](https://leetcode.com/)
