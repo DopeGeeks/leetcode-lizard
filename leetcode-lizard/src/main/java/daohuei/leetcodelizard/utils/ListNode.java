@@ -26,4 +26,24 @@ public class ListNode {
         }
         return repr;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) {
+            return true;
+        }
+        if (!(o instanceof ListNode)) {
+            return false;
+        }
+        ListNode inputListNode = (ListNode) o;
+        ListNode thisListNode = this;
+        while (inputListNode != null || thisListNode != null) {
+            if (inputListNode == null || thisListNode == null || inputListNode.val != thisListNode.val) {
+                return false;
+            }
+            inputListNode = inputListNode.next;
+            thisListNode = thisListNode.next;
+        }
+        return true;
+    }
 }
