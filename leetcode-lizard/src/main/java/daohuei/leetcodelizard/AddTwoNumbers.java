@@ -28,9 +28,9 @@ public class AddTwoNumbers {
      * 
      * @Author: @daohuei
      * 
-     * @Time: O(n), we loop over the list node once.
+     * @Time: O(max(m,n)), we loop over the list node once.
      * 
-     * @Space: O(n), we need a answer list node, which is the size that same as l1 &
+     * @Space: O(m or n), we need a answer list node, which is the size that same as l1 &
      * l2
      */
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
