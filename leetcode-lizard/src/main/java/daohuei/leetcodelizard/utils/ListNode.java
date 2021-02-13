@@ -16,6 +16,17 @@ public class ListNode {
         this.next = next;
     }
 
+    public ListNode(int[] values) {
+        ListNode dummyHead = new ListNode();
+        ListNode current = dummyHead;
+        for (int val : values) {
+            current.next = new ListNode(val);
+            current = current.next;
+        }
+        this.val = dummyHead.next.val;
+        this.next = dummyHead.next.next;
+    }
+
     @Override
     public String toString() {
         ListNode ptr = this;
@@ -29,7 +40,7 @@ public class ListNode {
 
     @Override
     public boolean equals(Object o) {
-        if (o == this) {
+        if ((o == this) || (o == null && this.val == 0 && this.next == null)) {
             return true;
         }
         if (!(o instanceof ListNode)) {
