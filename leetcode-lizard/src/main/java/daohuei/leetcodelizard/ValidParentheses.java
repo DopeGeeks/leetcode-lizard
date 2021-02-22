@@ -1,7 +1,6 @@
 package daohuei.leetcodelizard;
 
 import java.util.*;
-import daohuei.leetcodelizard.utils.*;
 
 /**
  * Question: Valid Parentheses
@@ -37,46 +36,61 @@ import daohuei.leetcodelizard.utils.*;
  */
 
 public class ValidParentheses{
-    static class Stack{
+    // initialize a linked list store all valid openingBrackets
+    public static class Stack{
         private LinkedList<Character> inputList = new LinkedList<Character> ();
+        // put at top
         public void push(char c){
             inputList.addFirst(c);
         }
+        // get the first element
         public char peek(){
             return inputList.getFirst();
         }
+        // remove the top element
         public char pop(){
             return inputList.removeFirst();
         }
+        // true if empty, else false
         public boolean isEmpty(){
             return inputList.isEmpty();
         }
     }
-    /*
+    /* Stack with linked list
+     * 
      * Author: @RaymondKao
      * 
-     * @Time_Complexity: O().
+     * @Time_Complexity: O(n).
      * 
-     * @Reason: .
+     * @Reason: Scan the input string with a for loop, so the time complexity equals to O(n).
      * 
-     * @Space_Complexity: O().
+     * @Space_Complexity: O(n).
      * 
-     * @Reason: .
+     * @Reason: Implement Stack using linked list, the stack will at most stores all chars into the linked list.
      */
-    public static boolean ValidParenthesesStack(String inputString){
+    public static boolean validParenthesesStack(String inputString){
         Stack s = new Stack();
         for(int i = 0; i < inputString.length(); i++){
+            // RESTRAINT: cannot exceed 104
+            if (i > 104){
+                return false;
+            }
+            
             char c = inputString.charAt(i);
+            // push valid openingBracket
             if(c == '(' || c == '{' || c == '['){
                 s.push(c);
                 continue;
             }
             
-            if (s.isEmpty())
+            // invalid openingBracket
+            if (s.isEmpty()){
                 return false;
+            }
             
             char openingBracket;
             openingBracket = s.pop();
+            // map to valid closingBracket
             switch(openingBracket){
                 case ')':
                     if (openingBracket == '{' || openingBracket == '[')
@@ -87,8 +101,8 @@ public class ValidParentheses{
                         return false;
                     break; 
                 case ']':
-                    if (openingBracket == '(' || openingBracket == '[')
-                    return false;
+                    if (openingBracket == '(' || openingBracket == '{')
+                        return false;
                     break;
             }
         }
