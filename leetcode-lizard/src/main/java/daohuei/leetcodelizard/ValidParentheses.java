@@ -1,6 +1,7 @@
-package daohuei.leetcodelizard.utils;
+package daohuei.leetcodelizard;
 
-import java.util.*
+import java.util.*;
+import daohuei.leetcodelizard.utils.*;
 
 /**
  * Question: Valid Parentheses
@@ -35,7 +36,22 @@ import java.util.*
  * s consists of parentheses only '()[]{}'
  */
 
-public class ValidParenthese{
+public class ValidParentheses{
+    static class Stack{
+        private LinkedList<Character> inputList = new LinkedList<Character> ();
+        public void push(char c){
+            inputList.addFirst(c);
+        }
+        public char peek(){
+            return inputList.getFirst();
+        }
+        public char pop(){
+            return inputList.removeFirst();
+        }
+        public boolean isEmpty(){
+            return inputList.isEmpty();
+        }
+    }
     /*
      * Author: @RaymondKao
      * 
@@ -47,7 +63,35 @@ public class ValidParenthese{
      * 
      * @Reason: .
      */
-    public static bool stack(String[] str){
-
+    public static boolean ValidParenthesesStack(String inputString){
+        Stack s = new Stack();
+        for(int i = 0; i < inputString.length(); i++){
+            char c = inputString.charAt(i);
+            if(c == '(' || c == '{' || c == '['){
+                s.push(c);
+                continue;
+            }
+            
+            if (s.isEmpty())
+                return false;
+            
+            char openingBracket;
+            openingBracket = s.pop();
+            switch(openingBracket){
+                case ')':
+                    if (openingBracket == '{' || openingBracket == '[')
+                        return false;
+                    break;
+                case '}':
+                    if (openingBracket == '(' || openingBracket == '[')
+                        return false;
+                    break; 
+                case ']':
+                    if (openingBracket == '(' || openingBracket == '[')
+                    return false;
+                    break;
+            }
+        }
+        return (s.isEmpty());
     }
 }
