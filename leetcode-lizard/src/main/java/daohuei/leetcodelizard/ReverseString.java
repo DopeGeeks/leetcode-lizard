@@ -12,7 +12,7 @@ public class ReverseString {
      * @time: O(n): n = total characters. (actually n/2)
      * @space: O(1): not using any
      */
-    public void reverseString(char[] s) {
+    public void reverseStringByDaoHuei(char[] s) {
         int tail = s.length - 1; // start point of tail, which is the last item
         // only iters through half of the array since we move head and tail in the same
         // time
@@ -27,4 +27,25 @@ public class ReverseString {
             tail--;
         }
     }
+
+    /*
+     * Author: @ballm06m06 Qusetion: Reverse String Description: Write a function
+     * that reverses a string. The input string is given as an array of characters
+     * char[]. Do not allocate extra space for another array, you must do this by
+     * modifying the input array in-place with O(1) extra memory.
+     * 
+     */
+    public void reverseString(char[] s) {
+        // Using two-pointer technique
+        // Time Complexity: O(n), Space Complexity: O(1)
+
+        int j = s.length - 1;
+
+        for (int i = 0; i < s.length / 2; i++) {
+            char tmp = s[i];
+            s[i] = s[j];
+            s[j--] = tmp;
+        }
+    }
+
 }
