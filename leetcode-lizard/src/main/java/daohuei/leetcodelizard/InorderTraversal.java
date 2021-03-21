@@ -50,7 +50,7 @@ public class InorderTraversal {
         List<Integer> results = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
         TreeNode current = root;
-        while (current != null && !stack.isEmpty()) {
+        while (current != null || !stack.isEmpty()) {
             // same as above, go to the end of the left
             while (current != null) {
                 // use stack to store nodes passed by
