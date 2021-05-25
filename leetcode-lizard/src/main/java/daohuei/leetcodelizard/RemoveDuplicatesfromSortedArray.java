@@ -1,3 +1,4 @@
+package daohuei.leetcodelizard;
 /*  
  * Author: @ballm06m06
  * Qusetion: Remove Duplicates from Sorted Array
