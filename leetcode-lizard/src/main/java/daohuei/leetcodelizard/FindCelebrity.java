@@ -15,7 +15,7 @@ public class FindCelebrity {
     /**
      * @author: daohuei
      * @description: iteration
-     * @time: O(n) just simply iter through people twice
+     * @time: O(n) just simply iter through people
      * @space: O(1) not using any
      */
     public int findCelebrity(int n) {
