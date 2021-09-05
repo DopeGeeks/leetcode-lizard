@@ -25,6 +25,13 @@ import java.util.Queue;
 // Note:
 // There will be at least one building. If it is not possible to build such house according to the above rules, return -1.
 public class ShortestDistanceFromAllBuildings {
+    /**
+     * @author: daohuei
+     * @description: bfs
+     * @time: O(n*k): for each cell they traverse till finding all buildings
+     * @space: O(n + k): k for queue, the max size of a level, n for visited array
+     *         for all cells
+     */
     public int shortestDistance(int[][] grid) {
         if (grid == null || grid.length == 0 || grid[0].length == 0)
             return 0;
